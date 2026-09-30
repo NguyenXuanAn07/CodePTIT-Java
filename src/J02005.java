@@ -5,10 +5,12 @@ public class J02005 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        int[] a = new int[n];
         int m = sc.nextInt();
+        int[] b = new int[m];
         if(n>1 && m>1 && m<100 && n<100){
-            int[] a = new int[n];
-            int[] b = new int[m];
+
+
             for(int i = 0; i<n; i++) {
                 a[i] = sc.nextInt();
             }
@@ -41,7 +43,7 @@ public class J02005 {
             for (int i = 0; i<n; i++){
                 boolean trung = false;
                 for(int j = 0; j<n; j++){
-                    if (A[j] == a[i]){
+                    if (B[j] == b[i]){
                         trung = true;
                         break;
                     }
@@ -51,8 +53,22 @@ public class J02005 {
                     sizeB++;
                 }
             }
-            System.out.println(Arrays.toString(Arrays.copyOf(A, sizeA)));
-            System.out.println(Arrays.toString(Arrays.copyOf(B, sizeB)));
+            int[] C = new int[Math.min(sizeA, sizeB)];
+            int sizeC = 0;
+            for(int i = 0; i<sizeA; i++) {
+                for (int j = 0; j < sizeB;j++){
+                    if(A[i] == B[j]){
+                        C[sizeC] = A[i];
+                        sizeC ++;
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < sizeC; i++) {
+                if (i > 0) System.out.print(" ");
+                System.out.print(C[i]);
+            }
+            System.out.println();
         }
     }
 }
