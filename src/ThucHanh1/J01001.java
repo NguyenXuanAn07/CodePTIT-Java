@@ -14,5 +14,6 @@ public class J01001 {
             int perimeter = (length+width)*2;
             System.out.println(perimeter + " " + square);
         }
+        scanner.close();
     }
 }
