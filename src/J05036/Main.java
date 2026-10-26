@@ -28,8 +28,8 @@ class MatHang {
     }
 
     public long getGiaBan() {
-        double giaBan = getThanhTien()*1.02;
-        return (long) Math.ceil(giaBan / 100.0) * 100;
+        double giaBan = getThanhTien() + getThanhTien()*0.02;
+        return Math.round((giaBan / 100.0) * 100) ;
     }
     @Override
     public String toString(){
